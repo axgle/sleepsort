@@ -1,0 +1,22 @@
+// sleep_sort with golang
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func SleepSort(nums []int) {
+	for _, n := range nums {
+		go func(n int) {
+			time.Sleep(time.Duration(n) * time.Second)
+			fmt.Println(n)
+
+		}(n)
+
+	}
+}
+func main() {
+	SleepSort([]int{2, 5, 0, 4, 1})
+	fmt.Scanln()
+}
